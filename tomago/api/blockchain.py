@@ -1,17 +1,14 @@
 """
 Copyright ArxanFintech Technology Ltd. 2018 All Rights Reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+根据Apache许可证2.0版（“许可证”）获得许可;
+除非符合许可，否则您不得使用此文件。
+您可以在以下位置获取许可证副本：
 
                  http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+除非适用法律要求或书面同意，否则根据许可证分发的软件按“原样”分发，不附带任何明示或暗示的担保或条件。
+有关管理许可下的权限和限制的特定语言，请参阅许可证.
 """
 
 import json
@@ -19,10 +16,10 @@ from rest.api.common import APIKEYHEADER, ROUTETAG
 from common import VERSION
 
 class BlockChain(object):
-    """A blockchain client implementation."""
+    """区块链客户端实现."""
 
     def __init__(self, client):
-        """Init blockchain client with Client."""
+        """用Client初始化区块链客户端."""
 
         self.__route_tag = "tomago"
         self.__path = "blockchain"
@@ -30,7 +27,7 @@ class BlockChain(object):
 
 
     def __set_header(self, header):
-        """Set wallet client header"""
+        """设置钱包客户端header"""
 
         if APIKEYHEADER not in header:
             header[APIKEYHEADER] = self.__client.get_apikey()
@@ -71,7 +68,7 @@ class BlockChain(object):
 
 
     def invoke(self, header, body):
-        """Invoke a blockchain."""
+        """激活一条区块链."""
 
         req_path = "blockchain/invoke"
         method = self.__client.do_post
@@ -87,7 +84,7 @@ class BlockChain(object):
 
 
     def query(self, header, body):
-        """Query status of a blockchain."""
+        """对区块链状态进行状态询问"""
 
         req_path = "blockchain/query"
         method = self.__client.do_post
@@ -103,7 +100,7 @@ class BlockChain(object):
 
 
     def query_txn(self, header, txnid):
-        """Query status of a transaction in the blockchain."""
+        """查询一条区块链中的交易状态。"""
 
         req_path = "blockchain/query/" + txnid 
         method = self.__client.do_get
